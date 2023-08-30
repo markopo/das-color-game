@@ -12,6 +12,12 @@ export function CardComponent(props: CardProps) {
     const { color, index, isTurned } = card;
 
     return (<>
-        <button className={isTurned ? color : "gray"} onClick={() => dispatch(card, GameActionKind.TURNCARD)} >{index}</button>
+        <button className={isTurned ? color : "gray"} onClick={() => {
+
+            if(!isTurned) {
+                dispatch(card, GameActionKind.TURNCARD)
+            }
+
+        } } >{index}</button>
     </>)
 }
